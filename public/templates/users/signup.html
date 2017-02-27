@@ -1,0 +1,20 @@
+<h2>Sign Up</h2>
+<div class="row">
+  <form ng-submit="userCtrl.signup()" class="col s12">
+    <div class="input-field">
+      <input ng-model="userCtrl.user.name" autocomplete="off" id="name" type="text" required>
+      <label for="name">Name</label>
+    </div>
+    <div class="input-field">
+      <input ng-model="userCtrl.user.email" autocomplete="off" id="email" type="email" required>
+      <label for="email">Email</label>
+    </div>
+    <div class="input-field">
+      <input ng-model="userCtrl.user.password" autocomplete="off" id="password" type="password" required>
+      <label for="password">Password</label>
+    </div>
+    <button class="btn waves-effect waves-light right" type="submit" name="action">
+        <i class="material-icons right">perm_identity</i> Sign Up
+    </button>
+  </form>
+</div>

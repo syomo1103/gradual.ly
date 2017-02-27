@@ -8,8 +8,8 @@ var bodyParser = require('body-parser');
 require('dotenv').config();
 require('./config/database');
 
-var index = require('./routes/index');
-var users = require('./routes/users');
+var indexRoutes = require('./routes/index');
+var apiRoutes = require('./routes/api');
 
 var app = express();
 
@@ -25,8 +25,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
-app.use('/users', users);
+app.use( require('./config/auth').verifyToken );
+
+app.use('/', indexRoutes);
+app.use('/api', apiRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

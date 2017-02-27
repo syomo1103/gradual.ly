@@ -1,27 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
   <head>
-    <title><%= title %></title>
+    <title>Gradual.ly</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
-    <link rel='stylesheet' href='/stylesheets/style.css'/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link href="stylesheet" rel="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400" rel="stylesheet">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-resource.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
   </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+
+  <body style="{{bgStyle}}" ng-controller="NavController as navCtrl">
+
+    <ul id="logged-out-dropdown" class="dropdown-content">
+      <li><a ui-sref="login">Log In</a></li>
+      <li><a ui-sref="signup">Sign Up</a></li>
+    </ul>
+
+    <ul id="logged-in-dropdown" class="dropdown-content">
+      <li><strong><p class="center-align">{{navCtrl.getUser().name}}</p></strong></li>
+      <li class="divider"></li>
+      <li><a ng-click="navCtrl.logout()">Log Out</a></li>
+    </ul>
+
+    <div class="navbar-fixed">
+      <nav class="redhead">
+        <div class="nav-wrapper">
+          <ul class="left">
+            <li>&nbsp;&nbsp;<a ui-sref="home" class="left brand-logo">gradual.ly</a></li>
+          </ul>
+          <ul class="right">
+            <!-- <li ng-show="navCtrl.isLoggedIn()" ui-sref-active="active"><a ui-sref="newTodo">New Todo</a></li> -->
+            <li ng-show="navCtrl.isLoggedIn()" ui-sref-active="active"><a ui-sref="todos">Saved Programs</a></li>
+            <li ng-hide="navCtrl.isLoggedIn()"><a class="dropdown-button" href="#!" data-activates="logged-out-dropdown"><i class="material-icons right">perm_identity</i></a></li>
+            <li ng-show="navCtrl.isLoggedIn()"><a class="dropdown-button" href="#!" data-activates="logged-in-dropdown"><i class="material-icons right">perm_identity</i></a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <br><br>
+
+    <div ui-view class="container"></div>
 
     <script src="/javascripts/app.js"></script>
-    <!-- js services -->
     <script src="/javascripts/services/auth-interceptor.js"></script>
     <script src="/javascripts/services/token-service.js"></script>
-    <!-- my services -->
     <script src="/javascripts/services/user-service.js"></script>
-    <!-- my controllers -->
+    <script src="/javascripts/controllers/nav-controller.js"></script>
+    <script src="/javascripts/controllers/user-controller.js"></script>
   </body>
 </html>

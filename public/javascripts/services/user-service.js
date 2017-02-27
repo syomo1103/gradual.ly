@@ -1,5 +1,5 @@
 angular.module('app')
-  .factory('UserService', UserService);
+  .factory('UserService', userService);
 
 userService.$inject = ['$http', 'TokenService'];
 
@@ -40,4 +40,5 @@ function userService($http, TokenService) {
     var token = TokenService.getToken();
     return token ? JSON.parse(atob(token.split('.')[1])).user : null;
   }
+
 }
