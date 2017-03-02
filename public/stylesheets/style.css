@@ -25,15 +25,42 @@
 body {
   font-family: 'Nunito Sans', sans-serif;
   font-weight: 300;
-  color: white;
 }
 
 #home-title {
   font-size: 30px;
-  margin-right: 40px;
-  margin-top: 60px;
+  margin-top: 30px;
+  color: white;
 }
 
 nav.search-bar {
   background-color: lightgrey;
+}
+
+#Accepted {
+  background-color: green;
+}
+
+#Rejected {
+  background-color: red;
+}
+
+#Interview {
+  background-color: blue;
+}
+
+#Waitlisted {
+  background-color: yellow;
+}
+
+#detail-heart {
+  font-size: 35px;
+}
+
+.material-icons:hover {
+cursor: pointer;
+}
+
+.school-title-link {
+  cursor: pointer;
 }

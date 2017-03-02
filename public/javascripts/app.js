@@ -11,6 +11,7 @@ function runBlock($rootScope, $state, UserService) {
       $state.go('login');
     } else {
       $rootScope.bgStyle = toState.bgStyle;
+      $rootScope.navStyle = toState.navStyle;
     }
   });
 }
@@ -26,7 +27,8 @@ function configRoutes($stateProvider, $urlRouterProvider, $httpProvider) {
     .state('home', {
       url: '/home',
       templateUrl: 'templates/home.html',
-      bgStyle: "background-image: url('http://i.imgur.com/C7AYAf6.jpg'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed;"
+      bgStyle: "background-image: url('http://i.imgur.com/C7AYAf6.jpg'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed;",
+      controller: 'HomeController as homeCtrl'
     })
 
     .state('login', {
@@ -34,9 +36,6 @@ function configRoutes($stateProvider, $urlRouterProvider, $httpProvider) {
       templateUrl: 'templates/users/login.html',
       controller: 'UserController as userCtrl',
       bgStyle: 'background: lightgrey'
-      // resolve: {
-      //   bodyClass: function() {return 'login-page'}
-      // }
     })
 
     .state('signup', {
@@ -44,17 +43,28 @@ function configRoutes($stateProvider, $urlRouterProvider, $httpProvider) {
       templateUrl: 'templates/users/signup.html',
       controller: 'UserController as userCtrl',
       bgStyle: 'background: lightgrey'
-      // resolve: {
-      //   bodyClass: function() {return 'signup-page'}
-      // }
-    });
+    })
 
-    // .state('todos', {
-    //   url: '/todos',
-    //   templateUrl: 'templates/todos/index.html',
-    //   controller: 'TodosController as todosCtrl',
-    //   loginRequired: true
-    // })
+    .state('schools-by-state', {
+      url: '/schools/:abbr',
+      templateUrl: 'templates/schools-by-state.html',
+      controller: 'SchoolsByStateController as schoolsByStateCtrl',
+      navStyle: 'color: black'
+    })
+
+    .state('school-detail', {
+      url: '/details',
+      templateUrl: 'templates/school-detail.html',
+      controller: 'SchoolDetailController as schoolDetailCtrl',
+      navStyle: 'color: black'
+    })
+
+    .state('saved-schools', {
+      url: '/saved',
+      templateUrl: 'templates/saved-schools.html',
+      // controller: 'SavedSchoolsController as savedSchoolsCtrl',
+      navStyle: 'color: black'
+    });
 
     // .state('newTodo', {
     //   url: '/new',

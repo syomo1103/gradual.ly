@@ -5,11 +5,12 @@ AuthInterceptor.$inject = ['TokenService'];
 
 function AuthInterceptor(TokenService) {
   return {
-    // Add request, response, requestError and/or responseError methods
 
     request: function(config) {
-      var token = TokenService.getToken();
-      if (token) config.headers.Authorization = 'Bearer ' + token;
+      if (config.url.startsWith('/api/')) {
+        var token = TokenService.getToken();
+        if (token) config.headers.Authorization = 'Bearer ' + token;
+      }
       return config;
     },
 

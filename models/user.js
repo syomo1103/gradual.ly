@@ -1,12 +1,15 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
 
+var Schema = mongoose.Schema;
+
 const SALT_ROUNDS = 6;
 
-var userSchema = new mongoose.Schema({
+var userSchema = new Schema({
   name: String,
   email: {type: String, lowercase: true, unique: true},
-  password: String
+  password: String,
+  favorites: [{type: Schema.Types.ObjectId, ref: 'School'}]
 });
 
 userSchema.set('toJSON', {

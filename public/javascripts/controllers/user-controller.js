@@ -6,8 +6,6 @@ UserController.$inject = ['$state', 'UserService'];
 function UserController($state, UserService) {
   var vm = this;
 
-  // = toState.name + '-page';
-
   vm.signup = function() {
     UserService.signup(vm.user).then(function() {
       $state.go('home');

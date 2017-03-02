@@ -35,26 +35,32 @@
       <nav class="redhead">
         <div class="nav-wrapper">
           <ul class="left">
-            <li>&nbsp;&nbsp;<a ui-sref="home" class="left brand-logo">gradual.ly</a></li>
+            <li>&nbsp;&nbsp;<a ui-sref="home" style="{{navStyle}}" class="left brand-logo">gradual.ly</a></li>
           </ul>
           <ul class="right">
             <!-- <li ng-show="navCtrl.isLoggedIn()" ui-sref-active="active"><a ui-sref="newTodo">New Todo</a></li> -->
-            <li ng-show="navCtrl.isLoggedIn()" ui-sref-active="active"><a ui-sref="todos">Saved Programs</a></li>
-            <li ng-hide="navCtrl.isLoggedIn()"><a class="dropdown-button" href="#!" data-activates="logged-out-dropdown"><i class="material-icons right">perm_identity</i></a></li>
-            <li ng-show="navCtrl.isLoggedIn()"><a class="dropdown-button" href="#!" data-activates="logged-in-dropdown"><i class="material-icons right">perm_identity</i></a></li>
+            <li ng-show="navCtrl.isLoggedIn()" ui-sref-active="active"><a ui-sref="saved-schools" style="{{navStyle}}">My Schools</a></li>
+            <li ng-hide="navCtrl.isLoggedIn()"><a style="{{navStyle}}" class="dropdown-button" href="#!" data-activates="logged-out-dropdown"><i class="material-icons right">perm_identity</i></a></li>
+            <li ng-show="navCtrl.isLoggedIn()"><a style="{{navStyle}}" class="dropdown-button" href="#!" data-activates="logged-in-dropdown"><i class="material-icons right">perm_identity</i></a></li>
           </ul>
         </div>
       </nav>
     </div>
-    <br><br>
 
     <div ui-view class="container"></div>
-
+    <script>
+      var SCORECARD_TOKEN = "<%= SCORECARD_TOKEN %>";
+    </script>
     <script src="/javascripts/app.js"></script>
+    <script src="/javascripts/services/user-service.js"></script>
+    <script src="/javascripts/services/school-resource.js"></script>
+    <script src="/javascripts/services/search-service.js"></script>
     <script src="/javascripts/services/auth-interceptor.js"></script>
     <script src="/javascripts/services/token-service.js"></script>
-    <script src="/javascripts/services/user-service.js"></script>
+    <script src="/javascripts/controllers/schoolsbystate-controller.js"></script>
+    <script src="/javascripts/controllers/schooldetail-controller.js"></script>
     <script src="/javascripts/controllers/nav-controller.js"></script>
+    <script src="/javascripts/controllers/home-controller.js"></script>
     <script src="/javascripts/controllers/user-controller.js"></script>
   </body>
 </html>

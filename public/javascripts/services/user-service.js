@@ -13,6 +13,7 @@ function userService($http, TokenService) {
     isLoggedIn
   };
 
+
   function login(credentials) {
     return $http.post('/api/users/login', credentials);
   }

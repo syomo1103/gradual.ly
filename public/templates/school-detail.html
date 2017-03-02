@@ -1,0 +1,75 @@
+<h1 class="center">
+  {{schoolDetailCtrl.school.name}}&nbsp;
+  <i ng-click="schoolDetailCtrl.favSchool()" class="material-icons" id="detail-heart">favorite_border</i>
+</h1>
+
+
+<div class="center">
+  <a href="http://{{schoolDetailCtrl.school.schoolWebsite}}" target="_blank">Go to School's Website</a>
+</div>
+<!--
+<h5 class="center" ng-hide="schoolDetailCtrl.isLoggedIn()">
+  Post your update by logging in or signing up!
+</h5> -->
+<!-- ng-show="navCtrl.isLoggedIn()" -->
+<form ng-submit="schoolDetailCtrl.addPost()">
+  <div class="input-field">
+    <select ng-model="schoolDetailCtrl.newPost.status">
+      <option value="" selected>What's your status?</option>
+      <option value="Accepted">Accepted</option>
+      <option value="Rejected">Rejected</option>
+      <option value="Interview">Interview</option>
+      <option value="Waitlisted">Waitlisted</option>
+    </select>
+    <label>Status</label>
+  </div>
+  <div class="input-field">
+    <select ng-model="schoolDetailCtrl.newPost.method">
+      <option value="" selected>How'd you get notified?</option>
+      <option value="Mail">Mail</option>
+      <option value="E-mail">E-mail</option>
+      <option value="Website">Website</option>
+      <option value="Phone">Phone</option>
+    </select>
+    <label>Method</label>
+  </div>
+  <div class="input-field">
+    <select ng-model="schoolDetailCtrl.newPost.admitSeason">
+      <option value="Fall 2017" selected>Fall 2017</option>
+      <option value="Spring 2018">Spring 2018</option>
+      <option value="Fall 2018">Fall 2018</option>
+    </select>
+    <label>Admit Season</label>
+  </div>
+  Program:<input ng-model="schoolDetailCtrl.newPost.program" placeholder="i.e. Computer Science">
+  Comment:<input ng-model="schoolDetailCtrl.newPost.comment" placeholder="Share your thoughts!">
+  <input class="right" type="submit" value="Add Post">
+</form>
+
+<div class="input-field" ng-show="schoolDetailCtrl.school.posts.length > 5">
+  <input id="search" type="search" ng-model="vm.search" required placeholder="Narrow down your search">
+  <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+  <i class="material-icons">close</i>
+</div>
+
+<h4 ng-hide="schoolDetailCtrl.school.posts.length" class="center">No posts for this school... yet!</h4>
+<h3 ng-show="schoolDetailCtrl.school.posts.length">Posts</h3>
+
+<ul class="collection" ng-repeat="post in schoolDetailCtrl.school.posts | filter:vm.search | orderBy:'createdAt':true track by $index">
+  <li class="collection-item avatar">
+    <div class="circle" id="{{post.status}}"></div>
+    <span class="title">{{post.program}} in {{post.admitSeason}}</span>
+    <p>
+      Posted: {{post.createdAt | date: "mediumDate"}}
+      <br>{{post.status}} by {{post.method}}
+      <br>{{post.comment}}
+      <!-- ng-show="navCtrl.getUser()"  -->
+      <i ng-click="schoolDetailCtrl.deletePost(post)" class="material-icons right">delete</i>
+    </p>
+  </li>
+</ul>
+
+<script>
+  $('select').material_select();
+</script>
+
