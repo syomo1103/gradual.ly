@@ -74,7 +74,3 @@ function deletePost(req, res, next) {
   //   }
   // });
 
-// helper function
-// function getPopulatedUser(userId) {
-//   return User.findById(userId).populate('favorites').exec();
-// };
