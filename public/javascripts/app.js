@@ -27,7 +27,7 @@ function configRoutes($stateProvider, $urlRouterProvider, $httpProvider) {
     .state('home', {
       url: '/home',
       templateUrl: 'templates/home.html',
-      bgStyle: "background-image: url('http://i.imgur.com/C7AYAf6.jpg'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed;",
+      bgStyle: "background-image: url('//i.imgur.com/C7AYAf6.jpg'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed;",
       controller: 'HomeController as homeCtrl'
     })
 
