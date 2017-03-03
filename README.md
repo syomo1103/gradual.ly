@@ -31,7 +31,13 @@ The technologies used for writing this application include:
 #### [Link to Trello] (https://trello.com/b/MpSPRhzN/project-4-gradual-ly)
 
 ##Major Hurdles
-The College Scorecard API was limited in that it doesn't provide the option to query a subset of the enormous data it returns, but instead you have to explicity designate each field. Also, most of the data returned is of data type number, which was not very useful for this project. 
+- The College Scorecard API was limited in that it doesn't provide the option to query a subset of the enormous data it returns, but instead you have to explicity designate each field. Also, most of the data returned is of data type number, which was not very useful for this project.
+- Understanding the MEAN Stack
+- Materialize conflicting with AngularJS (dropdown)
+
+##Unsolved Issues
+- UI/Design Improvements 
+- Lag on logging in and out
 
 ##Next Steps
 - Implement profile page for users 
