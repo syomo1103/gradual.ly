@@ -9,6 +9,7 @@
       </div>
       <div class="card-action">
         <button ng-click="favsCtrl.gotoSchool(school)">Go to School</button>
+        <span class="new badge" data-badge-caption="posts">{{schoolDetailCtrl.school.posts.length}}</span>
       </div>
     </div>
   </div>
@@ -17,5 +18,4 @@
 <h5 class="center" ng-hide="favsCtrl.schools.length">
   Looks like you don't have any favorites yet!
 </h5>
-<!-- ng-click="schoolsByStateCtrl.selectSchool(school) -->
 
