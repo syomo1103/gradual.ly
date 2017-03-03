@@ -66,12 +66,5 @@ function configRoutes($stateProvider, $urlRouterProvider, $httpProvider) {
       navStyle: 'color: black; background-color: #95B8CA;'
     });
 
-    // .state('newTodo', {
-    //   url: '/new',
-    //   templateUrl: 'templates/todos/new.html',
-    //   controller: 'NewController as newCtrl',
-    //   loginRequired: true
-    // });
-
   $urlRouterProvider.otherwise('/home');
 }

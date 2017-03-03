@@ -25,9 +25,5 @@ router.delete('/posts/:postId', schoolCtrl.deletePost);
 router.post('/schools/:schoolId/fav', schoolCtrl.favSchool);
 router.delete('/schools/:schoolId/fav', schoolCtrl.unFavSchool);
 router.get('/favorites', schoolCtrl.favsForUser);
-// router.get('/todos', todoCtrl.getAllTodos);
-// router.post('/todos', todoCtrl.createPost);
-// router.delete('/todos/:id', todoCtrl.deletePost);
-
 
 module.exports = router;

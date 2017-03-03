@@ -35,6 +35,7 @@ The College Scorecard API was limited in that it doesn't provide the option to q
 
 ##Next Steps
 - Implement profile page for users 
+- Implement a realtime chat
 - Allow users to view profiles of other users that have **favorited/saved** the same schools 
 adding pick a state on search results
 - Provide notifications when new posts have been added to saved schools
