@@ -10,8 +10,6 @@ function SchoolsByStateController($state, UserService, SearchService, $statePara
 
   SearchService.getSchoolsByState($stateParams.abbr).then(function(resp) {
     vm.totalSchools = resp.data.metadata.total;
-    // SearchService.addPages(vm.totalSchools);
-    // console.log(resp.data.results[0].id);
     vm.schools = resp.data;
   })
 

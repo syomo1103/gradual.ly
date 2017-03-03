@@ -12,8 +12,9 @@ function searchService($http, $q, School) {
     selectedSchool,
     selectSchool,
     addPost,
-    deletePost
-    // favSchool
+    deletePost,
+    favSchool,
+    unFavSchool
   };
 
   var baseUrl = '//api.data.gov/ed/collegescorecard/v1/schools?_per_page=100&_fields=school.name,id,school.school_url&api_key=' + SCORECARD_TOKEN;
@@ -28,7 +29,7 @@ function searchService($http, $q, School) {
     // the api will create school if doesn't exist
     return $q(function(resolve, reject) {
       School.get({schoolId: school.id}).$promise.then(function(s) {
-        selectedSchool = s;
+        this.selectedSchool = s;
         resolve(s);
       }).catch(function(err) {
         School.save({
@@ -38,7 +39,7 @@ function searchService($http, $q, School) {
           schoolId: school.id,
           schoolWebsite: school['school.school_url']
         }, function(newSchool) {
-          selectedSchool = newSchool;
+          this.selectedSchool = newSchool;
           resolve(newSchool);
         });
       });
@@ -47,15 +48,8 @@ function searchService($http, $q, School) {
 
   function addPost(post) {
     return School.addPost({
-      id: selectedSchool.schoolId,
+      id: this.selectedSchool.schoolId,
       data: post
-      //   {
-      //   comment: post.comment,
-      //   status: post.status,
-      //   method: post.method,
-      //   admitSeason: post.admitSeason,
-      //   program: post.program
-      // }
     }).$promise;
   }
 
@@ -63,12 +57,13 @@ function searchService($http, $q, School) {
     return School.deletePost({id: post}).$promise;
   };
 
-  // function favSchool(school) {
-  //   console.log(school);
-  //   return User.favSchool({
-  //     id: userId
-  //   }).$promise;
-  // }
+  function favSchool() {
+    return School.addFav({id: this.selectedSchool._id}).$promise;
+  };
+
+  function unFavSchool(school) {
+    return School.deleteFav({id: school._id}).$promise;
+  };
 
   return service;
 

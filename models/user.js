@@ -8,8 +8,7 @@ const SALT_ROUNDS = 6;
 var userSchema = new Schema({
   name: String,
   email: {type: String, lowercase: true, unique: true},
-  password: String,
-  favorites: [{type: Schema.Types.ObjectId, ref: 'School'}]
+  password: String
 });
 
 userSchema.set('toJSON', {

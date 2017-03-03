@@ -1,18 +1,22 @@
+<i class="material-icons">keyboard_arrow_left</i>
 <h1 class="center">
   {{schoolDetailCtrl.school.name}}&nbsp;
-  <i ng-click="schoolDetailCtrl.favSchool()" class="material-icons" id="detail-heart">favorite_border</i>
+  <span ng-show="navCtrl.isLoggedIn()">
+    <i ng-hide="schoolDetailCtrl.favorited()" ng-click="schoolDetailCtrl.favSchool()" class="material-icons" id="detail-heart">favorite_border</i>
+    <i ng-show="schoolDetailCtrl.favorited()" class="material-icons" id="detail-heart">favorite</i>
+  </span>
 </h1>
 
 
 <div class="center">
   <a href="http://{{schoolDetailCtrl.school.schoolWebsite}}" target="_blank">Go to School's Website</a>
 </div>
-<!--
-<h5 class="center" ng-hide="schoolDetailCtrl.isLoggedIn()">
+
+<h5 class="center" ng-hide="navCtrl.isLoggedIn()">
   Post your update by logging in or signing up!
-</h5> -->
-<!-- ng-show="navCtrl.isLoggedIn()" -->
-<form ng-submit="schoolDetailCtrl.addPost()">
+</h5>
+
+<form ng-show="navCtrl.isLoggedIn()" ng-submit="schoolDetailCtrl.addPost()">
   <div class="input-field">
     <select ng-model="schoolDetailCtrl.newPost.status">
       <option value="" selected>What's your status?</option>
@@ -55,16 +59,15 @@
 <h4 ng-hide="schoolDetailCtrl.school.posts.length" class="center">No posts for this school... yet!</h4>
 <h3 ng-show="schoolDetailCtrl.school.posts.length">Posts</h3>
 
-<ul class="collection" ng-repeat="post in schoolDetailCtrl.school.posts | filter:vm.search | orderBy:'createdAt':true track by $index">
-  <li class="collection-item avatar">
+<ul class="collection">
+  <li ng-repeat="post in schoolDetailCtrl.school.posts | filter:vm.search | orderBy:'createdAt':true track by $index" class="collection-item avatar">
     <div class="circle" id="{{post.status}}"></div>
     <span class="title">{{post.program}} in {{post.admitSeason}}</span>
     <p>
       Posted: {{post.createdAt | date: "mediumDate"}}
       <br>{{post.status}} by {{post.method}}
       <br>{{post.comment}}
-      <!-- ng-show="navCtrl.getUser()"  -->
-      <i ng-click="schoolDetailCtrl.deletePost(post)" class="material-icons right">delete</i>
+      <i ng-show="navCtrl.getUser()._id == post.poster" ng-click="schoolDetailCtrl.deletePost(post)" class="material-icons right">delete</i>
     </p>
   </li>
 </ul>

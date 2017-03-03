@@ -6,8 +6,10 @@ module.exports = {
   getSchool,
   addSchooltoDB,
   addPost,
-  deletePost
-  // favSchool
+  deletePost,
+  favSchool,
+  favsForUser,
+  unFavSchool
 };
 
 function getSchool(req, res, next) {
@@ -29,6 +31,7 @@ function addSchooltoDB(req, res, next) {
 function addPost(req, res, next) {
   School.findOne({schoolId: req.params.schoolId}, function(err, school){
     if (school) {
+      req.body.data.poster = req.user._id;
       school.posts.push(req.body.data);
       school.save(function(err, school) {
         res.status(200).json(school);
@@ -48,29 +51,31 @@ function deletePost(req, res, next) {
   });
 }
 
-// function favSchool(req, res, next) {
-//   School.findOne({schoolId: req.params.schoolId}, function(err, school) {
-//     if (school) {
-//       if (!req.user.favorites.some(fav => fav.equals(school._id))) {
-//         req.user.favorites.push(school._id);
-//         console.log(school._id);
-//         req.user.save(function(err, user) {
-//           res.status(200).json(user);
-//           // getPopulatedUser(req.user._id)
-//           // .then(user => res.render('recipes/index', {user: req.user, recipes: user.favorites}));
-//       // } else {
-//       //   getPopulatedUser(req.user._id)
-//       //   .then(user => res.render('recipes/index', {user: req.user, recipes: user.favorites}));
-//       // }
-//       })
-//     }
-//   }
-// })
-// }
-  //     school.posts.push(req.body.data);
-  //     school.save(function(err, school) {
-  //       res.status(200).json(school);
-  //     });
-  //   }
-  // });
+function favSchool(req, res, next) {
+  School.findById(req.params.schoolId, function(err, school) {
+    if (!school.favoritedBy.some(userId => userId.equals(req.user._id))) {
+      school.favoritedBy.push(req.user._id);
+      school.save(function(err) {
+        res.status(200).json(school);
+      });
+    } else {
+      res.status(200).json(school);
+    }
+  });
+}
+
+function unFavSchool(req, res, next) {
+  School.findById(req.params.schoolId, function(err, school) {
+    school.favoritedBy.remove(req.user._id);
+    school.save(function(err) {
+      res.status(200).json(school);
+    });
+  })
+}
+
+function favsForUser(req, res, next) {
+  School.find({favoritedBy: req.user._id}, function(err, schools) {
+    res.status(200).json(schools);
+  });
+}
 

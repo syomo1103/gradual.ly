@@ -20,11 +20,21 @@ function SchoolResource($resource) {
         url: '/api/posts/:id',
         params: {id: '@id'}
       },
-      // favSchool: {
-      //   method: 'POST',
-      //   url: '/api/schools/:id/fav',
-      //   params: {id: '@id'}
-      // }
+      addFav: {
+        method: 'POST',
+        url: '/api/schools/:id/fav',
+        params: {id: '@id'}
+      },
+      deleteFav: {
+        method: 'DELETE',
+        url: '/api/schools/:id/fav',
+        params: {id: '@id'}
+      },
+      favsForUser: {
+        method: 'GET',
+        url: '/api/favorites',
+        isArray: true
+      }
     }
   );
 }

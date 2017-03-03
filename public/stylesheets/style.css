@@ -64,3 +64,8 @@ cursor: pointer;
 .school-title-link {
   cursor: pointer;
 }
+
+#fav-cards {
+ font-size: 16px;
+ line-height: 25px;
+}

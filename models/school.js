@@ -27,7 +27,8 @@ var schoolSchema = new Schema({
   schoolId: Number,
   name: String,
   schoolWebsite: String,
-  posts: [postSchema]
+  posts: [postSchema],
+  favoritedBy: [{type: Schema.Types.ObjectId, ref: 'User'}]
 });
 
 module.exports = mongoose.model('School', schoolSchema);

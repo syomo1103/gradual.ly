@@ -49,21 +49,21 @@ function configRoutes($stateProvider, $urlRouterProvider, $httpProvider) {
       url: '/schools/:abbr',
       templateUrl: 'templates/schools-by-state.html',
       controller: 'SchoolsByStateController as schoolsByStateCtrl',
-      navStyle: 'color: black'
+      navStyle: 'color: black; background-color: #95B8CA;'
     })
 
     .state('school-detail', {
       url: '/details',
       templateUrl: 'templates/school-detail.html',
       controller: 'SchoolDetailController as schoolDetailCtrl',
-      navStyle: 'color: black'
+      navStyle: 'color: black; background-color: #95B8CA;'
     })
 
-    .state('saved-schools', {
-      url: '/saved',
-      templateUrl: 'templates/saved-schools.html',
-      // controller: 'SavedSchoolsController as savedSchoolsCtrl',
-      navStyle: 'color: black'
+    .state('favorite-schools', {
+      url: '/favorites',
+      templateUrl: 'templates/favorite-schools.html',
+      controller: 'FavsController as favsCtrl',
+      navStyle: 'color: black; background-color: #95B8CA;'
     });
 
     // .state('newTodo', {
