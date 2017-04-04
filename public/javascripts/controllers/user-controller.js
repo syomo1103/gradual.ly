@@ -15,7 +15,7 @@ function UserController($state, UserService) {
 
   vm.login = function() {
     UserService.login(vm.user).then(function() {
-      $state.go('home');
+      $state.go('favorite-schools');
       toastr.success("You've successfully logged in!");
     }, function() {
       $state.go('login');

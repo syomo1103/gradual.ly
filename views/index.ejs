@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
     <link href="stylesheet" rel="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:100,400" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400" rel="stylesheet">
     <link rel='stylesheet' href='/stylesheets/style.css' />
@@ -34,12 +35,42 @@
     <div class="navbar-fixed">
       <nav class="redhead" style="{{navStyle}}">
         <div class="nav-wrapper">
-          <ul class="left">
-            <li>&nbsp;&nbsp;<a ui-sref="home" style="{{navStyle}}" class="left brand-logo">gradual.ly</a></li>
-          </ul>
+
+          <!-- <ul class="left"> -->
+          <a ui-sref="home" style="{{navStyle}}" class="left brand-logo">gradual.ly</a>
+          <!-- </ul> -->
+
+         <!--  <ul class="center">
+            <form ng-submit="homeCtrl.searchByName(vm.name)">
+              <div class="input-field">
+                <input id="search" type="search" ng-model="vm.name" required placeholder="i.e. University of Miami">
+                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+              </div>
+            </form>
+          </ul> -->
+
+            <nav ng-hide="('home' | isState) || ('login' | isState) || ('signup' | isState)" class="navbar-search">
+              <div class="nav-wrapper">
+                <form class="search-form" ng-submit="navCtrl.searchByName(vm.name)">
+                  <div class="input-field">
+                    <input id="search" type="search" ng-model="vm.name" required placeholder="Search by Name (i.e. University of Miami)">
+                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                    <!-- <button ng-click="navCtrl.clearInput(vm.name)" class="material-icons">close</button> -->
+                  </div>
+                </form>
+              </div>
+            </nav>
+
           <ul class="right">
-            <li ng-show="navCtrl.isLoggedIn()" ui-sref-active="active"><a ui-sref="home" style="{{navStyle}}">Search by State</a></li>
-            <li ng-show="navCtrl.isLoggedIn()" ui-sref-active="active"><a ui-sref="favorite-schools" style="{{navStyle}}">My Schools</a></li>
+            <!-- <li id="navbar-li">
+
+            </li> -->
+            <!-- <li ng-show="navCtrl.isLoggedIn()" ui-sref-active="active"><a ui-sref="home" style="{{navStyle}}">Search by State</a></li> -->
+            <li ng-show="navCtrl.isLoggedIn()" ui-sref-active="active">
+              <span ng-show="navCtrl.addNotification" id="notification-bubble"></span>
+              <a id="my-schools-link" ui-sref="favorite-schools" style="{{navStyle}}">My Schools</a>
+            </li>
+            <li ng-show="navCtrl.isLoggedIn()" ui-sref-active="active"><a ui-sref="my-posts" style="{{navStyle}}">My Posts</a></li>
             <li ng-hide="navCtrl.isLoggedIn()"><a style="{{navStyle}}" class="dropdown-button" href="#!" data-activates="logged-out-dropdown"><i class="material-icons right">perm_identity</i></a></li>
             <li ng-show="navCtrl.isLoggedIn()"><a style="{{navStyle}}" class="dropdown-button" href="#!" data-activates="logged-in-dropdown"><i class="material-icons right">perm_identity</i></a></li>
           </ul>
@@ -51,13 +82,20 @@
     <script>
       var SCORECARD_TOKEN = "<%= SCORECARD_TOKEN %>";
     </script>
+    <script src="/socket.io/socket.io.js"></script>
     <script src="/javascripts/app.js"></script>
     <script src="/javascripts/services/user-service.js"></script>
     <script src="/javascripts/services/school-resource.js"></script>
     <script src="/javascripts/services/search-service.js"></script>
     <script src="/javascripts/services/auth-interceptor.js"></script>
     <script src="/javascripts/services/token-service.js"></script>
+    <script src="/javascripts/services/socket-service.js"></script>
+    <script src="/javascripts/services/email-service.js"></script>
+    <script src="/javascripts/controllers/myposts-controller.js"></script>
     <script src="/javascripts/controllers/schoolsbystate-controller.js"></script>
+    <script src="/javascripts/controllers/schoolsonlybyname-controller.js"></script>
+    <script src="/javascripts/controllers/schoolsbyname-controller.js"></script>
+    <script src="/javascripts/controllers/schoolsbystatepages-controller.js"></script>
     <script src="/javascripts/controllers/schooldetail-controller.js"></script>
     <script src="/javascripts/controllers/favschools-controller.js"></script>
     <script src="/javascripts/controllers/nav-controller.js"></script>

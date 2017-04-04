@@ -34,6 +34,22 @@ function SchoolResource($resource) {
         method: 'GET',
         url: '/api/favorites',
         isArray: true
+      },
+      postsForUser: {
+        method: 'GET',
+        url: '/api/posts',
+        isArray: true
+      },
+      findEmails: {
+        method: 'POST',
+        url: '/api/emails',
+        isArray: true,
+        data: ':data'
+      },
+      sendEmail: {
+        method: 'POST',
+        url: '/api/mail',
+        data: ':data'
       }
     }
   );

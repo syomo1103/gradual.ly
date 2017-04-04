@@ -7,7 +7,8 @@ module.exports = {
   create,
   login,
   logout,
-  me
+  me,
+  emailsForUsers
 };
 
 function create(req, res, next) {
@@ -34,6 +35,12 @@ function login(req, res, next) {
 function logout(req, res, next) {
   req.session.userId = null;
   res.status(200).json({});
+}
+
+function emailsForUsers(req, res, next) {
+  User.find({_id: req.body.data}, function(err, users) {
+    res.status(200).json(users);
+  });
 }
 
 // Called by client to get logged in user doc

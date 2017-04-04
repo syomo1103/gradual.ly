@@ -10,7 +10,6 @@ function FavsController(School, SearchService, $state, $stateParams) {
   vm.id = $stateParams.schoolId;
 
   vm.selectSchool = function(school) {
-    console.log(school);
     SearchService.selectSchool(school).then(function(school) {
       // school is from my api/db
       SearchService.selectedSchool = school;
@@ -28,6 +27,12 @@ function FavsController(School, SearchService, $state, $stateParams) {
   vm.gotoSchool = function(school) {
     SearchService.selectedSchool = school;
     $state.go('school-detail');
+  }
+
+  vm.searchByName = function(name) {
+    $timeout(function() {
+      $state.go('only-name', {name: name});
+    });
   }
 
 }

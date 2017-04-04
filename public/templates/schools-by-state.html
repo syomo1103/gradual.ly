@@ -1,15 +1,31 @@
-<h1>Schools in {{schoolsByStateCtrl.state}}</h1>
+<h1 class="center">Schools in {{schoolsByStateCtrl.state}}</h1>
+<h5 class="center">(Total Results: {{schoolsByStateCtrl.totalSchools}})</h5>
 
-  <div class="nav-wrapper">
+<!-- for calls by school -->
+  <div ng-hide="schoolsByStateCtrl.totalSchools < 20" class="nav-wrapper">
+    <form ng-submit="schoolsByStateCtrl.searchByName(vm.name)">
+      <div class="input-field">
+        <input id="search" type="search" ng-model="vm.name" required placeholder="Narrow down your search">
+        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+      </div>
+    </form>
+  </div>
+
+<!-- for narrowing down search -->
+  <!-- <div class="nav-wrapper">
     <form ng-submit="userCtrl.searchByState()">
       <div class="input-field">
         <input id="search" type="search" ng-model="vm.search" required placeholder="Narrow down your search">
         <label class="label-icon" for="search"><i class="material-icons">search</i></label>
       </div>
     </form>
-  </div>
+  </div> -->
 
 <ul ng-repeat="school in schoolsByStateCtrl.schools.results | filter:vm.search | orderBy: '\'school.name\'' ">
   <li class="school-title-link" ng-click="schoolsByStateCtrl.selectSchool(school)">{{school['school.name']}}</li>
 </ul>
 
+<ul ng-show="schoolsByStateCtrl.moreThanOne()" class="pagination center">
+  <li ng-repeat="page in schoolsByStateCtrl.pages"><a href="#!" ng-click="schoolsByStateCtrl.selectPage(page)" class="waves-effect">{{$index + 1}}</a></li>
+  <li ng-click="schoolsByStateCtrl.nextPage()" class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+</ul>

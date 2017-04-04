@@ -2,9 +2,9 @@ angular.module('app', ['ui.router', 'ngAnimate', 'ngResource'])
   .config(configRoutes)
   .run(runBlock);
 
-runBlock.$inject = ['$rootScope', '$state', 'UserService'];
+runBlock.$inject = ['$rootScope', '$state', 'UserService', 'SearchService'];
 
-function runBlock($rootScope, $state, UserService) {
+function runBlock($rootScope, $state, UserService, SearchService) {
   $rootScope.$on('$stateChangeStart', function(evt, toState) {
     if (toState.loginRequired && !UserService.isLoggedIn()) {
       evt.preventDefault();
@@ -27,8 +27,9 @@ function configRoutes($stateProvider, $urlRouterProvider, $httpProvider) {
     .state('home', {
       url: '/home',
       templateUrl: 'templates/home.html',
-      bgStyle: "background-image: url('//i.imgur.com/C7AYAf6.jpg'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed;",
-      controller: 'HomeController as homeCtrl'
+      bgStyle: "background-image: url('//i.imgur.com/KZPKJJ2.jpg'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed;",
+      controller: 'HomeController as homeCtrl',
+      navStyle: 'box-shadow: none; color: black;'
     })
 
     .state('login', {
@@ -49,21 +50,50 @@ function configRoutes($stateProvider, $urlRouterProvider, $httpProvider) {
       url: '/schools/:abbr',
       templateUrl: 'templates/schools-by-state.html',
       controller: 'SchoolsByStateController as schoolsByStateCtrl',
-      navStyle: 'color: black; background-color: #95B8CA;'
+      navStyle: 'color: white; background-color: #CA3D2E;'
+    })
+
+    .state('pages', {
+      url: '/schools/:abbr/:page',
+      templateUrl: 'templates/schools-by-state-pages.html',
+      controller: 'SchoolsByStatePagesController as schoolsByStatePagesCtrl',
+      navStyle: 'color: white; background-color: #CA3D2E;'
+    })
+
+    .state('name', {
+      // url: '/schools/:abbr/:page/:name',
+      url: '/schools/:abbr/search/:name',
+      templateUrl: 'templates/schools-by-name.html',
+      controller: 'SchoolsByNameController as schoolsByNameCtrl',
+      navStyle: 'color: white; background-color: #CA3D2E;'
+    })
+
+    .state('only-name', {
+      url: '/search/:name',
+      templateUrl: 'templates/schools-only-by-name.html',
+      controller: 'SchoolsOnlyByNameController as schoolsOnlyByNameCtrl',
+      navStyle: 'color: white; background-color: #CA3D2E;'
     })
 
     .state('school-detail', {
       url: '/details',
       templateUrl: 'templates/school-detail.html',
       controller: 'SchoolDetailController as schoolDetailCtrl',
-      navStyle: 'color: black; background-color: #95B8CA;'
+      navStyle: 'color: white; background-color: #CA3D2E;'
     })
 
     .state('favorite-schools', {
       url: '/favorites',
       templateUrl: 'templates/favorite-schools.html',
       controller: 'FavsController as favsCtrl',
-      navStyle: 'color: black; background-color: #95B8CA;'
+      navStyle: 'color: white; background-color: #CA3D2E;'
+    })
+
+    .state('my-posts', {
+      url: '/myposts',
+      templateUrl: 'templates/my-posts.html',
+      controller: 'MyPostsController as myPostsCtrl',
+      navStyle: 'color: white; background-color: #CA3D2E;'
     });
 
   $urlRouterProvider.otherwise('/home');

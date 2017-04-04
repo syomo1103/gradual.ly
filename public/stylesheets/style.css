@@ -16,20 +16,22 @@
 }
 
 .redhead {
-  box-shadow: none;
   background-color: transparent;
-  font-family: 'Poiret One', cursive;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 100;
+  /*font-family: 'Poiret One', cursive;*/
 }
 
 body {
-  font-family: 'Nunito Sans', sans-serif;
-  font-weight: 300;
+  font-family: 'Josefin Sans', sans-serif;
+  /*font-family: 'Nunito Sans', sans-serif;*/
+  font-weight: 400;
 }
 
 #home-title {
   font-size: 30px;
   margin-top: 30px;
-  color: white;
+  color: black;
 }
 
 nav.search-bar {
@@ -41,7 +43,7 @@ nav.search-bar {
 }
 
 #Rejected {
-  background-color: red;
+  background-color: #CA3D2E;
 }
 
 #Interview {
@@ -53,7 +55,7 @@ nav.search-bar {
 }
 
 #detail-heart {
-  font-size: 35px;
+  font-size: 30px;
 }
 
 .material-icons:hover {
@@ -67,4 +69,77 @@ cursor: pointer;
 #fav-cards {
  font-size: 16px;
  line-height: 25px;
+}
+
+#fav-cards:hover {
+ cursor: pointer;
+}
+
+span.title.my-posts {
+  color: #039be5;
+}
+
+span.title:hover {
+  cursor: pointer;
+}
+
+.navbar-search {
+  width: 500px;
+  margin-left: 200px;
+  background-color: white;
+  box-shadow: none;
+}
+
+a.left.brand-logo {
+  margin-left: 15px;
+  font-size: 45px;
+}
+
+.chip.posts {
+  background-color: white;
+  border: 1px solid black;
+}
+
+#notification-bubble {
+  background: #fd9a00;
+  border-radius: 50%;
+  display: block;
+  height: 10px;
+  width: 10px;
+  content: "";
+  margin-left: 85px;
+  margin-top: 10px;
+  z-index: 1;
+  position: absolute;
+}
+
+#my-schools-link {
+  z-index: 0;
+  /*position: absolute;*/
+}
+
+.dropdown-button.btn {
+  background-color: transparent;
+  border: 1px solid black;
+  color: black;
+}
+
+@media screen and (max-width: 699px) {
+  .dropdown-button.btn {
+    background-color: white;
+  }
+
+  a.left.brand-logo {
+    font-size: 25px;
+  }
+}
+
+.dropdown-content li>a, li>span {
+  color: black;
+}
+
+input.right.btn {
+  background-color: transparent;
+  border: 1px solid black;
+  color: black;
 }

@@ -1,5 +1,6 @@
-// var User = require('../models/user');
 var School = require('../models/school');
+var User = require('../models/user');
+
 var SECRET = process.env.SECRET;
 
 module.exports = {
@@ -9,7 +10,9 @@ module.exports = {
   deletePost,
   favSchool,
   favsForUser,
-  unFavSchool
+  unFavSchool,
+  postsForUser
+  // emailsForUsers
 };
 
 function getSchool(req, res, next) {
@@ -75,6 +78,13 @@ function unFavSchool(req, res, next) {
 
 function favsForUser(req, res, next) {
   School.find({favoritedBy: req.user._id}, function(err, schools) {
+    res.status(200).json(schools);
+  });
+}
+
+function postsForUser(req, res, next) {
+  School.find({'posts.poster': req.user._id}, function(err, schools) {
+    console.log(schools);
     res.status(200).json(schools);
   });
 }

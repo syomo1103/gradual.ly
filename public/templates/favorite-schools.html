@@ -1,6 +1,6 @@
 <h1 class="center">My Schools</h1>
 
-<div class="row">
+<!-- <div class="row">
   <div ng-repeat="school in favsCtrl.schools" class="col s6 l4">
     <div class="card blue-grey darken-1">
       <div class="card-content white-text">
@@ -8,7 +8,22 @@
         <span class="card-title" id="fav-cards">{{school['name']}}</span>
       </div>
       <div class="card-action">
-        <button ng-click="favsCtrl.gotoSchool(school)">Go to School</button>
+        <button class="btn waves-effect waves-purple" ng-click="favsCtrl.gotoSchool(school)">Go to School</button>
+        <div ng-show="school.posts.length === 1" class="chip right">{{school.posts.length}} post</div>
+        <div ng-show="school.posts.length > 1" class="chip right">{{school.posts.length}} posts</div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="row">
+  <div ng-repeat="school in favsCtrl.schools" class="col s6 l4">
+    <div class="card-panel" style="background-color: lightgrey">
+      <div class="card-content">
+        <i ng-click="favsCtrl.unFavSchool(school)" class="material-icons right" id="detail-heart">favorite</i>
+        <p ng-click="favsCtrl.gotoSchool(school)" id="fav-cards">{{school['name']}}</p>
+        <div ng-show="school.posts.length === 1" class="chip posts right">{{school.posts.length}} post</div>
+        <div ng-show="school.posts.length > 1" class="chip posts right">{{school.posts.length}} posts</div>
       </div>
     </div>
   </div>
@@ -17,4 +32,9 @@
 <h5 class="center" ng-hide="favsCtrl.schools.length">
   Looks like you don't have any favorites yet!
 </h5>
+
+<script>
+  $('ul.tabs').tabs();
+</script>
+
 

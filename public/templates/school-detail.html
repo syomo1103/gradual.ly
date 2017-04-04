@@ -1,11 +1,10 @@
-<h1 class="center">
+<h3 class="center">
   {{schoolDetailCtrl.school.name}}&nbsp;
   <span ng-show="navCtrl.isLoggedIn()">
     <i ng-hide="schoolDetailCtrl.favorited()" ng-click="schoolDetailCtrl.favSchool()" class="material-icons" id="detail-heart">favorite_border</i>
-    <i ng-show="schoolDetailCtrl.favorited()" class="material-icons" id="detail-heart">favorite</i>
+    <i ng-show="schoolDetailCtrl.favorited()" ng-click="schoolDetailCtrl.unFavFromDetail(school)" class="material-icons" id="detail-heart">favorite</i>
   </span>
-</h1>
-
+</h3>
 
 <div class="center">
   <a href="http://{{schoolDetailCtrl.school.schoolWebsite}}" target="_blank">Go to School's Website</a>
@@ -46,7 +45,7 @@
   </div>
   Program:<input ng-model="schoolDetailCtrl.newPost.program" placeholder="i.e. Computer Science">
   Comment:<input ng-model="schoolDetailCtrl.newPost.comment" placeholder="Share your thoughts!">
-  <input class="right" type="submit" value="Add Post">
+  <input class="right btn" type="submit" value="Add Post">
 </form>
 
 <div class="input-field" ng-show="schoolDetailCtrl.school.posts.length > 5">
@@ -55,17 +54,18 @@
   <i class="material-icons">close</i>
 </div>
 
+<br>
 <h4 ng-hide="schoolDetailCtrl.school.posts.length" class="center">No posts for this school... yet!</h4>
 <h3 ng-show="schoolDetailCtrl.school.posts.length">Posts</h3>
 
 <ul class="collection">
   <li ng-repeat="post in schoolDetailCtrl.school.posts | filter:vm.search | orderBy:'createdAt':true track by $index" class="collection-item avatar">
-    <div class="circle" id="{{post.status}}"></div>
-    <span class="title">{{post.program}} in {{post.admitSeason}}</span>
+    <!-- <div class="circle" id="{{post.status}}"></div> -->
     <p>
-      Posted: {{post.createdAt | date: "mediumDate"}}
-      <br>{{post.status}} by {{post.method}}
-      <br>{{post.comment}}
+      <div id="{{post.status}}" class="chip">{{post.status}}</div> via {{post.method}} on {{post.createdAt | date: "mediumDate"}}
+      <br><span class="title">Program: {{post.program}} in {{post.admitSeason}}</span>
+      <br><em>{{post.comment}}</em>
+      <!-- <br>{{post.status}} by {{post.method}} -->
       <i ng-show="navCtrl.getUser()._id == post.poster" ng-click="schoolDetailCtrl.deletePost(post)" class="material-icons right">delete</i>
     </p>
   </li>

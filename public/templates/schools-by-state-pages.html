@@ -1,0 +1,22 @@
+<h1>Schools in {{schoolsByStatePagesCtrl.state}}</h1>
+
+  <div ng-hide="schoolsByStatePagesCtrl.schools.length < 20" class="nav-wrapper">
+    <form ng-submit="schoolsByStatePagesCtrl.searchByName(vm.name)">
+      <div class="input-field">
+        <input id="search" type="search" ng-model="vm.name" required placeholder="Narrow down your search">
+        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+      </div>
+    </form>
+  </div>
+
+<ul ng-repeat="school in schoolsByStatePagesCtrl.schools.results | filter:vm.search | orderBy: '\'school.name\'' ">
+  <li class="school-title-link" ng-click="schoolsByStatePagesCtrl.selectSchool(school)">{{school['school.name']}}</li>
+</ul>
+
+<ul class="pagination center">
+  <li ng-hide="schoolsByStatePagesCtrl.currentPageOne()" ng-click="schoolsByStatePagesCtrl.prevPage()" class="waves-effect"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+  <li ng-repeat="page in schoolsByStatePagesCtrl.pages"><a href="#!" ng-click="schoolsByStatePagesCtrl.selectPage(page)" class="waves-effect">{{$index + 1}}</a></li>
+  <li ng-hide="schoolsByStatePagesCtrl.currentPageLast()" ng-click="schoolsByStatePagesCtrl.nextPage()" class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+</ul>
+
+
