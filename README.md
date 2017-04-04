@@ -1,12 +1,12 @@
 #Welcome to gradual.ly!
-![Home page](http://i.imgur.com/cSr4FfN.png)
+![Home page](http://i.imgur.com/EKXo11j.png)
 
 ##Description
 It's *easier* to answer questions like, "has anyone heard back yet?" as a prospective undergraduate student when many of your friends are going through the same process. The same isn't said so much when applying to graduate programs. 
 
 Gradual.ly is a platform geared towards prospective graduate students to share updates and stay up-to-date during, what is typically, a stressful admissions process. 
 
-With gradual.ly, all users are able to a view posts for a school. Logged in users are able to save schools to their favorites dashboard for easy of use and better organization, as well as post updates with specific details such as program, semester, status (i.e. accepted, rejected, waitlisted), etc. 
+With gradual.ly, all users are able to a view posts for a school. Logged in users are able to save schools to their favorites dashboard for easy of use and better organization, receive email notifications when a post has been added to their favorites, post updates with specific details such as program, semester, status (i.e. accepted, rejected, waitlisted), and view all of their posts. 
 
 ##Technologies Used
 
@@ -40,8 +40,5 @@ The technologies used for writing this application include:
 - Lag on logging in and out
 
 ##Next Steps
-- Implement profile page for users 
-- Implement a realtime chat
-- Allow users to view profiles of other users that have **favorited/saved** the same schools 
-adding pick a state on search results
-- Provide notifications when new posts have been added to saved schools
+- Realtime chat
+- Commenting and liking posts
