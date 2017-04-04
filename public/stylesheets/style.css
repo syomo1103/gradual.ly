@@ -126,15 +126,21 @@ a.brand-logo {
   color: black;
 }
 
-@media screen and (max-width: 699px) {
+@media screen and (max-width: 600px) {
   .dropdown-button.btn {
     background-color: white;
   }
 
   a.brand-logo {
-    font-size: 35px;
+    font-size: 40px;
   }
 
+}
+
+@media only screen and (max-width: 992px) and (min-width: 600px) {
+  nav .brand-logo {
+    left: 50px;
+  }
 }
 
 .dropdown-content li>a, li>span {

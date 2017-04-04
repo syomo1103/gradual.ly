@@ -35,7 +35,7 @@
         </form>
           <!-- </div> -->
         <!-- </nav> -->
-      <ul class="right hide-on-med-and-down">
+      <ul class="right hide-on-small-only">
         <li ng-show="navCtrl.isLoggedIn()" ui-sref-active="active">
           <span ng-show="navCtrl.addNotification" id="notification-bubble"></span>
           <a id="my-schools-link" ui-sref="favorite-schools" style="{{navStyle}}">My Schools</a>
@@ -64,7 +64,7 @@
         <li ng-show="navCtrl.isLoggedIn()" ui-sref-active="active"><a ui-sref="my-posts">My Posts</a></li>
         <li ng-show="navCtrl.isLoggedIn()"><a ng-click="navCtrl.logout()">Log Out</a></li>
       </ul>
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i id="menu-icon" class="material-icons" style="{{navStyle}}">menu</i></a>
+      <a href="#" data-activates="nav-mobile" class="button-collapse hide-on-med-and-up"><i id="menu-icon" class="material-icons" style="{{navStyle}}">menu</i></a>
     </div>
   </nav>
 
