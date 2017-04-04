@@ -26,7 +26,7 @@
       <a id="logo-container" ui-sref="home" class="brand-logo" style="{{navStyle}}">gradual.ly</a>
       <!-- <nav> -->
           <!-- <div class="nav-wrapper container"> -->
-        <form ng-hide="('home' | isState) || ('login' | isState) || ('signup' | isState)" class="navbar-search hide-on-med-and-down" ng-submit="navCtrl.searchByName(vm.name)" id="search-form">
+        <form ng-hide="('home' | isState) || ('login' | isState) || ('signup' | isState)" class="navbar-search hide-on-small-only" ng-submit="navCtrl.searchByName(vm.name)" id="search-form">
           <div class="input-field">
             <input id="search" type="search" ng-model="vm.name" required placeholder="Search by Name (i.e. University of Miami)">
             <label class="label-icon" for="search"><i class="material-icons">search</i></label>
