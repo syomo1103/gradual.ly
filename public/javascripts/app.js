@@ -29,21 +29,23 @@ function configRoutes($stateProvider, $urlRouterProvider, $httpProvider) {
       templateUrl: 'templates/home.html',
       bgStyle: "background-image: url('//i.imgur.com/KZPKJJ2.jpg'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed;",
       controller: 'HomeController as homeCtrl',
-      navStyle: 'box-shadow: none; color: black;'
+      navStyle: 'box-shadow: none; color: rgba(0,0,0,0.87);'
     })
 
     .state('login', {
       url: '/login',
       templateUrl: 'templates/users/login.html',
       controller: 'UserController as userCtrl',
-      bgStyle: 'background: lightgrey'
+      bgStyle: 'background: lightgrey',
+      navStyle: 'color: rgba(0,0,0,0.87);'
     })
 
     .state('signup', {
       url: '/signup',
       templateUrl: 'templates/users/signup.html',
       controller: 'UserController as userCtrl',
-      bgStyle: 'background: lightgrey'
+      bgStyle: 'background: lightgrey',
+      navStyle: 'color: rgba(0,0,0,0.87);'
     })
 
     .state('schools-by-state', {

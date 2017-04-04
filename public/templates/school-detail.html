@@ -16,7 +16,7 @@
 
 <form ng-show="navCtrl.isLoggedIn()" ng-submit="schoolDetailCtrl.addPost()">
   <div class="input-field">
-    <select ng-model="schoolDetailCtrl.newPost.status">
+    <select ng-model="schoolDetailCtrl.newPost.status" class="browser-default">
       <option value="" selected>What's your status?</option>
       <option value="Accepted">Accepted</option>
       <option value="Rejected">Rejected</option>
@@ -26,7 +26,7 @@
     <label>Status</label>
   </div>
   <div class="input-field">
-    <select ng-model="schoolDetailCtrl.newPost.method">
+    <select ng-model="schoolDetailCtrl.newPost.method" class="browser-default">
       <option value="" selected>How'd you get notified?</option>
       <option value="Mail">Mail</option>
       <option value="E-mail">E-mail</option>
@@ -36,7 +36,7 @@
     <label>Method</label>
   </div>
   <div class="input-field">
-    <select ng-model="schoolDetailCtrl.newPost.admitSeason">
+    <select ng-model="schoolDetailCtrl.newPost.admitSeason" class="browser-default">
       <option value="Fall 2017" selected>Fall 2017</option>
       <option value="Spring 2018">Spring 2018</option>
       <option value="Fall 2018">Fall 2018</option>
