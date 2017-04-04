@@ -27,6 +27,8 @@ function SchoolsByNameController($state, UserService, SearchService, $stateParam
   vm.searchByName = function(name) {
     $timeout(function() {
       $state.go('name', {abbr: vm.state, name: name});
+      document.getElementById("home-form").reset();
+      document.getElementById("search-form").reset();
     });
   }
 

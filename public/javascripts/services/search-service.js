@@ -26,7 +26,8 @@ function searchService($http, $q, School) {
     searchByName,
     getSchoolsOnlyByName,
     deletePostFromPosts,
-    addNotification
+    addNotification,
+    clearInput
   };
 
   var baseUrl = '//api.data.gov/ed/collegescorecard/v1/schools?_per_page=100&school.degrees_awarded.predominant=3,4&_fields=school.name,id,school.school_url&api_key=' + SCORECARD_TOKEN;
@@ -118,6 +119,9 @@ function searchService($http, $q, School) {
     messageReceived = true;
   };
 
+  function clearInput(input) {
+    return input = '';
+  };
 
   return service;
 

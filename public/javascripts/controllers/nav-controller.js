@@ -26,13 +26,10 @@ function NavController($state, UserService, $scope, SearchService, socket, $time
   vm.searchByName = function(name) {
     $timeout(function() {
       $state.go('only-name', {name: name});
-
+      document.getElementById("search-form").reset();
+      // document.getElementById("home-form").reset();
     });
   }
-
-  // vm.clearInput = function(input) {
-  //   input = '';
-  // }
 
   vm.getUser = UserService.getUser;
   vm.isLoggedIn = UserService.isLoggedIn;

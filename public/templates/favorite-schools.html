@@ -18,7 +18,7 @@
 
 <div class="row">
   <div ng-repeat="school in favsCtrl.schools" class="col s6 l4">
-    <div class="card-panel" style="background-color: lightgrey">
+    <div class="card-panel hoverable" style="background-color: lightgrey">
       <div class="card-content">
         <i ng-click="favsCtrl.unFavSchool(school)" class="material-icons right" id="detail-heart">favorite</i>
         <p ng-click="favsCtrl.gotoSchool(school)" id="fav-cards">{{school['name']}}</p>

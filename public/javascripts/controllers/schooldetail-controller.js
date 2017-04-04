@@ -53,8 +53,6 @@ function SchoolDetailController(School, $state, UserService, SearchService, $sta
       socket.emit('add-notification');
       vm.favUsers = school.favoritedBy;
       UserService.findEmails(vm.favUsers).then(function(users) {
-        console.log(Array.isArray(users));
-        console.log(users.length);
         users.forEach(function(user) {
           vm.user = {
             email: '',

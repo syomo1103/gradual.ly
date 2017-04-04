@@ -86,13 +86,15 @@ span.title:hover {
 .navbar-search {
   width: 500px;
   margin-left: 200px;
-  background-color: white;
+  /*background-color: white;*/
   box-shadow: none;
+  display: inline-block;
+  box-sizing: none;
 }
 
-a.left.brand-logo {
+a.brand-logo {
   margin-left: 15px;
-  font-size: 45px;
+  /*font-size: 45px;*/
 }
 
 .chip.posts {
@@ -129,9 +131,10 @@ a.left.brand-logo {
     background-color: white;
   }
 
-  a.left.brand-logo {
-    font-size: 25px;
+  a.brand-logo {
+    font-size: 35px;
   }
+
 }
 
 .dropdown-content li>a, li>span {
@@ -142,4 +145,8 @@ input.right.btn {
   background-color: transparent;
   border: 1px solid black;
   color: black;
+}
+
+#menu-icon {
+  color: rgba(0,0,0,0.87);
 }

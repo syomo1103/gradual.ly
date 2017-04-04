@@ -23,6 +23,8 @@ function SchoolsOnlyByNameController($state, UserService, SearchService, $stateP
   vm.searchByName = function(name) {
     $timeout(function() {
       $state.go('only-name', {name: name});
+      document.getElementById("home-form").reset();
+      document.getElementById("search-form").reset();
     });
   }
 
