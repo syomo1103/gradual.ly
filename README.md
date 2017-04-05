@@ -6,7 +6,7 @@ It's *easier* to answer questions like, "has anyone heard back yet?" as a prospe
 
 Gradual.ly is a platform geared towards prospective graduate students to share updates and stay up-to-date during, what is typically, a stressful admissions process. 
 
-With gradual.ly, all users are able to a view posts for a school. Logged in users are able to save schools to their favorites dashboard for easy of use and better organization, receive email notifications when a post has been added to their favorites, post updates with specific details such as program, semester, status (i.e. accepted, rejected, waitlisted), and view all of their posts. 
+With gradual.ly, all users are able to a view posts for a school. Authenticated users are able to save schools to their favorites dashboard for easy of use and better organization, receive email and realtime notifications when a post has been added to their favorites, post updates with specific details such as program, semester, status (i.e. accepted, rejected, waitlisted), and view all of their posts. 
 
 ## Technologies Used
 
@@ -22,7 +22,9 @@ The technologies used for writing this application include:
 - Heroku
 - HTML5
 - CSS3
+- Nodemailer
 - Google's Materialize
+- Socket.io
 - U.S. Department of Education's College Scorecard API
 
 ## Getting Started
