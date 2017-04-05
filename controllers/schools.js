@@ -12,7 +12,6 @@ module.exports = {
   favsForUser,
   unFavSchool,
   postsForUser
-  // emailsForUsers
 };
 
 function getSchool(req, res, next) {
