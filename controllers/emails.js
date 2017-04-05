@@ -8,13 +8,11 @@ var transporter = nodemailer.createTransport({
   service: 'Gmail',
   auth: {
     user: process.env.EMAILSERVICEUSER,
-    password: process.env.EMAILSERVICEPASS
+    pass: process.env.EMAILSERVICEPASS
   }
 });
 
 function sendMail(req, res, next) {
-  console.log(req.body.data);
-  console.log(req.body.data.length);
   for (var i = 0; i < req.body.data.length; i++) {
     var mailOptions = {
       from: process.env.EMAILSERVICEUSER,
