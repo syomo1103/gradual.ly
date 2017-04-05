@@ -1,27 +1,5 @@
-<!-- <h1 class="center">Schools By Name</h1> -->
 <h2 class="center">You searched: {{schoolsOnlyByNameCtrl.name}}</h2>
 <h5 class="center">(Total Results: {{schoolsOnlyByNameCtrl.totalSchools}})</h5>
-
-
-<!-- for calls by school -->
-  <!-- <div class="nav-wrapper">
-    <form ng-submit="schoolsOnlyByNameCtrl.searchByName(vm.name)">
-      <div class="input-field">
-        <input id="search" type="search" ng-model="vm.name" required placeholder="Search by School Name">
-        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-      </div>
-    </form>
-  </div> -->
-
-<!-- for narrowing down search -->
-  <!-- <div class="nav-wrapper">
-    <form ng-submit="userCtrl.searchByState()">
-      <div class="input-field">
-        <input id="search" type="search" ng-model="vm.search" required placeholder="Narrow down your search">
-        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-      </div>
-    </form>
-  </div> -->
 
 <ul ng-repeat="school in schoolsOnlyByNameCtrl.schools | filter:vm.search | orderBy: '\'school.name\'' ">
   <li class="school-title-link" ng-click="schoolsOnlyByNameCtrl.selectSchool(school)">{{school['school.name']}}</li>
@@ -30,8 +8,3 @@
 <div class="center" ng-show="schoolsOnlyByNameCtrl.schools.length === 0">
   Oops! Looks like something went wrong with your search.
 </div>
-
-<!-- <ul ng-show="schoolsOnlyByNameCtrl.moreThanOne()" class="pagination center">
-  <li ng-repeat="page in schoolsOnlyByNameCtrl.pages"><a href="#!" ng-click="schoolsOnlyByNameCtrl.selectPage(page)" class="waves-effect">{{$index + 1}}</a></li>
-  <li ng-click="schoolsByNameCtrl.nextPage()" class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-</ul> -->

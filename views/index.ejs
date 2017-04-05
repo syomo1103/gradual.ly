@@ -24,8 +24,6 @@
   <nav class="redhead" role="navigation" style="{{navStyle}}">
     <div class="nav-wrapper">
       <a id="logo-container" ui-sref="home" class="brand-logo" style="{{navStyle}}">gradual.ly</a>
-      <!-- <nav> -->
-          <!-- <div class="nav-wrapper container"> -->
         <form ng-hide="('home' | isState) || ('login' | isState) || ('signup' | isState)" class="navbar-search hide-on-small-only" ng-submit="navCtrl.searchByName(vm.name)" id="search-form">
           <div class="input-field">
             <input id="search" type="search" ng-model="vm.name" required placeholder="Search by Name (i.e. University of Miami)">
@@ -33,8 +31,6 @@
             <i ng-click="navCtrl.clearInput(vm.name)" class="material-icons">close</i>
           </div>
         </form>
-          <!-- </div> -->
-        <!-- </nav> -->
       <ul class="right hide-on-small-only">
         <li ng-show="navCtrl.isLoggedIn()" ui-sref-active="active">
           <span ng-show="navCtrl.addNotification" id="notification-bubble"></span>
@@ -67,63 +63,6 @@
       <a href="#" data-activates="nav-mobile" class="button-collapse hide-on-med-and-up"><i id="menu-icon" class="material-icons" style="{{navStyle}}">menu</i></a>
     </div>
   </nav>
-
-    <!-- <ul id="logged-out-dropdown" class="dropdown-content">
-      <li><a ui-sref="login">Log In</a></li>
-      <li><a ui-sref="signup">Sign Up</a></li>
-    </ul> -->
-
-    <!-- <ul id="logged-in-dropdown" class="dropdown-content">
-      <li><strong><p class="center-align">{{navCtrl.getUser().name}}</p></strong></li>
-      <li class="divider"></li>
-      <li><a ng-click="navCtrl.logout()">Log Out</a></li>
-    </ul> -->
-
-<!--     <div class="navbar-fixed">
-      <nav class="redhead" style="{{navStyle}}">
-        <div class="nav-wrapper"> -->
-
-          <!-- <ul class="left"> -->
-          <!-- <a ui-sref="home" style="{{navStyle}}" class="left brand-logo">gradual.ly</a> -->
-          <!-- </ul> -->
-
-         <!--  <ul class="center">
-            <form ng-submit="homeCtrl.searchByName(vm.name)">
-              <div class="input-field">
-                <input id="search" type="search" ng-model="vm.name" required placeholder="i.e. University of Miami">
-                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-              </div>
-            </form>
-          </ul> -->
-
-            <!-- <nav ng-hide="('home' | isState) || ('login' | isState) || ('signup' | isState)" class="navbar-search">
-              <div class="nav-wrapper">
-                <form class="search-form" ng-submit="navCtrl.searchByName(vm.name)">
-                  <div class="input-field">
-                    <input id="search" type="search" ng-model="vm.name" required placeholder="Search by Name (i.e. University of Miami)">
-                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                   <button ng-click="navCtrl.clearInput(vm.name)" class="material-icons">close</button> -->
-                  <!-- </div>
-                </form>
-              </div>
-            </nav> -->
-
-          <!-- <ul class="right"> -->
-            <!-- <li id="navbar-li">
-
-            </li> -->
-            <!-- <li ng-show="navCtrl.isLoggedIn()" ui-sref-active="active"><a ui-sref="home" style="{{navStyle}}">Search by State</a></li> -->
-           <!--  <li ng-show="navCtrl.isLoggedIn()" ui-sref-active="active">
-              <span ng-show="navCtrl.addNotification" id="notification-bubble"></span>
-              <a id="my-schools-link" ui-sref="favorite-schools" style="{{navStyle}}">My Schools</a>
-            </li>
-            <li ng-show="navCtrl.isLoggedIn()" ui-sref-active="active"><a ui-sref="my-posts" style="{{navStyle}}">My Posts</a></li>
-            <li ng-hide="navCtrl.isLoggedIn()"><a style="{{navStyle}}" class="dropdown-button" href="#!" data-activates="logged-out-dropdown"><i class="material-icons right">perm_identity</i></a></li>
-            <li ng-show="navCtrl.isLoggedIn()"><a style="{{navStyle}}" class="dropdown-button" href="#!" data-activates="logged-in-dropdown"><i class="material-icons right">perm_identity</i></a></li>
-          </ul>
-        </div>
-      </nav>
-    </div> -->
 
     <div ui-view class="container"></div>
     <script>

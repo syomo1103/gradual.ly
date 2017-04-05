@@ -9,7 +9,6 @@ function SchoolsByStateController($state, UserService, SearchService, $statePara
   vm.state = $stateParams.abbr;
   vm.pages = [];
   vm.page = $stateParams.page;
-  // vm.name = $stateParams.name;
 
   SearchService.getSchoolsByState($stateParams.abbr).then(function(resp) {
     vm.totalSchools = resp.data.metadata.total;
@@ -18,7 +17,6 @@ function SchoolsByStateController($state, UserService, SearchService, $statePara
       vm.pages.push(i);
     }
     vm.schools = resp.data;
-    // console.log(vm.pages); is an array with [0,1] - good!
   })
 
   vm.searchByName = function(name) {

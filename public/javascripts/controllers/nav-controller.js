@@ -27,7 +27,6 @@ function NavController($state, UserService, $scope, SearchService, socket, $time
     $timeout(function() {
       $state.go('only-name', {name: name});
       document.getElementById("search-form").reset();
-      // document.getElementById("home-form").reset();
     });
   }
 

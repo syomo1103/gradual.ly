@@ -12,7 +12,6 @@ function SchoolsByNameController($state, UserService, SearchService, $stateParam
   vm.name = $stateParams.name;
 
 
-  // SearchService.searchByName(vm.state).then(function(resp) {
     SearchService.getSchoolsByName(vm.state, vm.name).then(function(resp) {
       vm.totalSchools = resp.data.metadata.total;
       vm.totalPages = Math.ceil(vm.totalSchools / 100);
@@ -22,7 +21,6 @@ function SchoolsByNameController($state, UserService, SearchService, $stateParam
       vm.schools = resp.data.results;
       console.log(vm.schools);
     })
-  // });
 
   vm.searchByName = function(name) {
     $timeout(function() {
@@ -39,22 +37,5 @@ function SchoolsByNameController($state, UserService, SearchService, $stateParam
       $state.go('school-detail');
     });
   }
-
-  // vm.selectPage = function(page) {
-  //   $timeout(function() {
-  //     $state.go('pages', {abbr: vm.state, page: page + 1});
-  //   });
-  // }
-
-  // vm.moreThanOne = function(totalPages) {
-  //   if (vm.totalPages > 1) {
-  //     return true;
-  //   }
-  // }
-
-  // vm.nextPage = function() {
-  //   vm.page = vm.pages[0] + 1;
-  //   vm.selectPage(vm.page);
-  // }
 
 }

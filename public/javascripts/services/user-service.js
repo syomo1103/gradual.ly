@@ -15,7 +15,6 @@ function userService($http, TokenService, School) {
     sendEmail
   };
 
-
   function login(credentials) {
     return $http.post('/api/users/login', credentials);
   }
@@ -42,39 +41,12 @@ function userService($http, TokenService, School) {
     }).$promise;
   }
 
-  // function sendEmail(userData) {
-  //   var stringUserData = userData.toString();
-  //   console.log(stringUserData);
-  //   return School.sendEmail({
-  //     data: stringUserData
-  //   }).$promise;
-  // }
-
   function sendEmail(emailContent) {
-    // var stringUserData = userData.toString();
     console.log(emailContent);
     return School.sendEmail({
       data: emailContent
     }).$promise;
   }
-
-  // function findEmails(userData) {
-  //   console.log(userData);
-  //   return $http.post({
-  //     url: '/api/emails',
-  //     data: {
-  //       arr: userData
-  //     }
-  //   });
-  // }
-
-  // function findEmails(userData) {
-  //   console.log(userData);
-  //   return School.findEmails({
-  //     id: this.selectedSchool.schoolId,
-  //     data: userData
-  //   }).$promise;
-  // }
 
   return service;
 

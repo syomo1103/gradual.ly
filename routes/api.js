@@ -12,8 +12,6 @@ router.get('/users/me', userCtrl.me);
 router.get('/schools/:schoolId', schoolCtrl.getSchool);
 router.post('/schools', schoolCtrl.addSchooltoDB);
 
-// router.post('/schoolId', schoolCtrl.addSchooltoDb);
-
 // Auth middleware (routes below need authentication)
 router.use(function(req, res, next) {
   if (req.user) return next();
@@ -23,7 +21,6 @@ router.use(function(req, res, next) {
 // Protected routes (authentication required)
 router.post('/schools/:schoolId/posts', schoolCtrl.addPost);
 router.delete('/posts/:postId', schoolCtrl.deletePost);
-// router.put('/posts/:postId/edit', schoolCtrl.editPost);
 router.post('/schools/:schoolId/fav', schoolCtrl.favSchool);
 router.delete('/schools/:schoolId/fav', schoolCtrl.unFavSchool);
 router.get('/favorites', schoolCtrl.favsForUser);

@@ -19,12 +19,10 @@
   background-color: transparent;
   font-family: 'Josefin Sans', sans-serif;
   font-weight: 100;
-  /*font-family: 'Poiret One', cursive;*/
 }
 
 body {
   font-family: 'Josefin Sans', sans-serif;
-  /*font-family: 'Nunito Sans', sans-serif;*/
   font-weight: 400;
 }
 
@@ -86,7 +84,6 @@ span.title:hover {
 .navbar-search {
   width: 500px;
   margin-left: 200px;
-  /*background-color: white;*/
   box-shadow: none;
   display: inline-block;
   box-sizing: none;
@@ -94,7 +91,6 @@ span.title:hover {
 
 a.brand-logo {
   margin-left: 15px;
-  /*font-size: 45px;*/
 }
 
 .chip.posts {
@@ -117,7 +113,6 @@ a.brand-logo {
 
 #my-schools-link {
   z-index: 0;
-  /*position: absolute;*/
 }
 
 .dropdown-button.btn {
@@ -152,7 +147,3 @@ input.right.btn {
   border: 1px solid black;
   color: black;
 }
-
-/*#menu-icon {
-  color: rgba(0,0,0,0.87);
-}*/

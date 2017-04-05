@@ -36,21 +36,4 @@ function SchoolsOnlyByNameController($state, UserService, SearchService, $stateP
     });
   }
 
-  // vm.selectPage = function(page) {
-  //   $timeout(function() {
-  //     $state.go('pages', {abbr: vm.state, page: page + 1});
-  //   });
-  // }
-
-  // vm.moreThanOne = function(totalPages) {
-  //   if (vm.totalPages > 1) {
-  //     return true;
-  //   }
-  // }
-
-  // vm.nextPage = function() {
-  //   vm.page = vm.pages[0] + 1;
-  //   vm.selectPage(vm.page);
-  // }
-
 }

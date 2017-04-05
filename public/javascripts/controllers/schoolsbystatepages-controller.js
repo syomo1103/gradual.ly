@@ -10,7 +10,6 @@ function SchoolsByStatePagesController($state, UserService, SearchService, $stat
   vm.page = $stateParams.page - 1;
   vm.pages = [];
 
-  // vm.selectPage = function(page) {
     SearchService.selectPage(vm.state).then(function(resp) {
       SearchService.getSchoolsByPage(vm.state, vm.page).then(function(resp) {
         vm.totalSchools = resp.data.metadata.total;
@@ -21,7 +20,6 @@ function SchoolsByStatePagesController($state, UserService, SearchService, $stat
         vm.schools = resp.data;
       })
     });
-  // }
 
   vm.searchByName = function(name) {
     $timeout(function() {

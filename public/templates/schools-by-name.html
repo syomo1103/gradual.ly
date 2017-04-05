@@ -1,6 +1,4 @@
-<!-- <h1>Schools in {{schoolsByStateCtrl.state}}</h1> -->
 <h1>Total Results in {{schoolsByNameCtrl.state}}: {{schoolsByNameCtrl.schools.length}}</h1>
-<!-- Schools By Name in {{schoolsByNameCtrl.state}} -->
 
   <div ng-hide="schoolsByNameCtrl.schools.length < 20" class="nav-wrapper">
     <form ng-submit="schoolsByNameCtrl.searchByName(vm.name)">
@@ -18,9 +16,3 @@
 <div class="center" ng-show="schoolsByNameCtrl.schools.length === 0">
   Oops! Looks like something went wrong with your search.
 </div>
-
-
-<!-- <ul ng-show="schoolsByNameCtrl.moreThanOne()" class="pagination center">
-  <li ng-repeat="page in schoolsByNameCtrl.pages"><a href="#!" ng-click="schoolsByNameCtrl.selectPage(page)" class="waves-effect">{{$index + 1}}</a></li>
-  <li ng-click="schoolsByNameCtrl.nextPage()" class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-</ul> -->

@@ -1,30 +1,14 @@
 <h1 class="center">My Posts</h1>
 
-<!-- <ul class="collection"> -->
-  <!-- <li ng-repeat="post in myPostsCtrl.schools | filter:vm.search | orderBy:'createdAt':true track by $index" class="collection-item avatar"> -->
-    <!-- <div class="circle" id="{{post['status']}}"></div> -->
-    <!-- <span class="title">{{post.program}} in {{post.admitSeason}}</span> -->
-    <!-- <p> -->
-    <!-- {{school['name']}} -->
-      <!-- Posted: {{post.createdAt | date: "mediumDate"}} -->
-      <!-- <br>{{post.status}} by {{post.method}} -->
-      <!-- <br>{{post.comment}} -->
-      <!-- <i ng-show="navCtrl.getUser()._id == post.poster" ng-click="schoolDetailCtrl.deletePost(post)" class="material-icons right">delete</i> -->
-    <!-- </p> -->
-  <!-- </li> -->
-<!-- </ul> -->
-<!-- post in schoolDetailCtrl.school.posts  -->
 <ul class="collection">
   <li ng-repeat="school in myPostsCtrl.schools | filter:vm.search" class="collection-item">
     <h5 class="center">{{school.name}}</h5>
     <ul class="collection">
       <li class="collection-item" ng-show="navCtrl.getUser()._id == post.poster" ng-repeat="post in school.posts | orderBy:'createdAt':true track by $index">
-        <!-- <div class="circle" id="{{post.status}}"></div> -->
         <span ng-click="myPostsCtrl.gotoSchool(school)" class="title my-posts">{{post.comment}}</span>
         <p>
           <div id="{{post.status}}" class="chip right">{{post.status}}</div>
           {{post.program}} in {{post.admitSeason}}
-          <!-- <br>{{post.status}} -->
           <br>Posted: {{post.createdAt | date: "mediumDate"}}
           <br>Contacted by {{post.method}}
           <i ng-click="myPostsCtrl.deletePost(post)" class="material-icons right">delete</i>
