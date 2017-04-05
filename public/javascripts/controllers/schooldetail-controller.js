@@ -14,35 +14,7 @@ function SchoolDetailController(School, $state, UserService, SearchService, $sta
 
   vm.school = SearchService.selectedSchool;
   vm.updateUsers = [];
-  // vm.emailContent = {
-  //   emails: [],
-  //   names: [],
-  //   school: {}
-  // };
-  // vm.emailContent = [
-  //   {
-  //     user: {
-  //       email: '',
-  //       name: '',
-  //       school: {}
-  //     }
-  //   }
-  // ];
   vm.emailContent = [];
-
-//   vm.user = function buUser() {
-//     return {
-//       'email': '',
-//       'name': '',
-//       'school': {}
-//   };
-// };
-
-  // vm.user = {
-  //   email: '',
-  //   name: '',
-  //   school: {}
-  // }
 
   vm.addPost = function() {
     SearchService.addPost(vm.newPost).then(function(school) {
@@ -60,47 +32,21 @@ function SchoolDetailController(School, $state, UserService, SearchService, $sta
             school: {}
           }
           if (user._id !== UserService.getUser()._id) {
-            console.log(user.email);
-            // vm.emailContent.emails.push(user.email);
-            // vm.emailContent.names.push(user.name);
-            // console.log(vm.emailContent.names);
-            // console.log(vm.emailContent.emails);
-            // vm.emailContent.school = school;
-            // console.log(vm.emailContent.school);
-            // vm.emailContent.push(vm.emailContent[i].user.email = user.email, vm.emailContent[i].user.name = user.name, vm.emailContent[i].user.school = school);
-
             vm.user['email'] = user.email;
             vm.user['name'] = user.name;
             vm.user['school'] = school;
-            console.log(vm.user);
             vm.emailContent.push(vm.user);
             console.log(vm.emailContent);
-            // vm.updateUsers.push(user.email);
           } else {
             return;
           }
         });
       UserService.sendEmail(vm.emailContent);
+      vm.emailContent = [];
+      console.log(vm.emailContent);
       });
-      // UserService.sendEmail(vm.updateUsers, school);
-      // SearchService.sendMail();
-
-      // for (var prop in vm.school.posts) {
-      //   console.log(vm.school.posts[prop].poster);
-      //   if UserService.getUser()._id === vm.school.posts[prop].poster
-      // }
-      // console.log(vm.school.posts);
     });
   };
-
-  // vm.sendEmail = function(email) {
-  //   EmailService.save({
-  //     to: ,
-  //     subject: ,
-  //     text:
-
-  //   });
-  // };
 
   vm.deletePost = function(post) {
     SearchService.deletePost(post._id).then(function(school) {
