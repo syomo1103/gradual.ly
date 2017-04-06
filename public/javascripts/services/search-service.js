@@ -30,7 +30,7 @@ function searchService($http, $q, School) {
     clearInput
   };
 
-  var baseUrl = '//api.data.gov/ed/collegescorecard/v1/schools?_per_page=100&school.degrees_awarded.predominant=3,4&_fields=school.name,id,school.school_url&api_key=' + SCORECARD_TOKEN;
+  var baseUrl = 'https://api.data.gov/ed/collegescorecard/v1/schools?_per_page=100&school.degrees_awarded.predominant=3,4&_fields=school.name,id,school.school_url&api_key=' + SCORECARD_TOKEN;
 
   function getSchoolsByState(state) {
     return $http.get(baseUrl + '&school.state=' + state);

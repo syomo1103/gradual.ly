@@ -20,6 +20,7 @@ function NavController($state, UserService, $scope, SearchService, socket, $time
   document.getElementById('my-schools-link').addEventListener('click', function() {
     if (vm.addNotification === true) {
       vm.addNotification = false;
+      // socket.emit('add-notification');
     }
   });
 

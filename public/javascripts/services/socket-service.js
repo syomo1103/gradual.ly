@@ -27,6 +27,22 @@ angular.module('app')
           }
         });
       });
+    },
+
+    off: function (eventName) {
+
+      function wrapper() {
+        var args = arguments;
+        $rootScope.$apply(function () {
+          callback.apply(socket, args);
+        });
+      }
+
+      socket.off(eventName);
+
+      return function () {
+        socket.removeListener(eventName, wrapper);
+      };
     }
   };
 }]);
